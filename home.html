@@ -30,6 +30,10 @@
             border-radius: 20%;
         }
 
+        .title-text {
+            color: rgb(255, 255, 255);
+        }
+
         nav a {
             font-size: 20px;
         }
@@ -59,6 +63,11 @@
             -o-animation: rotation 3s linear infinite;
         }
 
+        .about_pic {
+            margin-top: 200px;
+            margin-right: 250px;
+        }
+
         .about-img {
             overflow: hidden;
         }
@@ -69,7 +78,7 @@
         }
 
         .about-img img:hover {
-            transform: scale(1.5, 1.5);
+            transform: scale(1.2, 1.2);
         }
 
         @-webkit-keyframes rotation {
@@ -111,8 +120,8 @@
         }
 
         .typing-txt-block.bg-animation {
-            -webkit-animation: bg-animation 15s ease-in-out infinite;
-            animation: bg-animation 15s ease-in-out infinite;
+            -webkit-animation: bg-animation 20s ease-in-out infinite;
+            animation: bg-animation 20s ease-in-out infinite;
         }
 
         @keyframes bg-animation {
@@ -153,8 +162,10 @@
             color: rgb(0, 0, 0);
             overflow: hidden;
             border-right: 1px solid #ffffff;
-            animation: type 3s steps(30), blink 0.5s infinite alternate;
-            -webkit-animation: type 3s steps(30), blink 0.5s infinite alternate;
+            animation: type 3s steps(30) infinite alternate;
+            -webkit-animation: type 3s steps(30) infinite alternate;
+            /* animation: type 3s steps(30), blink 0.5s infinite alternate;
+            -webkit-animation: type 3s steps(30), blink 0.5s infinite alternate; */
             white-space: nowrap;
         }
 
@@ -164,7 +175,7 @@
             }
 
             100% {
-                width: 100%;
+                width: 110%;
             }
         }
 
@@ -189,19 +200,19 @@
         }
 
         .footer-banner {
-            background-color: #02a80a;
+            background-color: #757575;
             color: #fff;
             text-align: center;
             margin-left: 0px;
-            min-height: 90px;
-            padding: 0 30px 30px;
+            min-height: 30px;
+            padding: 0 10px 10px;
         }
 
         .footer-title {
             color: white;
             margin: 0 0 22px;
             padding-top: 21px;
-            line-height: 30px;
+            line-height: 10px;
         }
     </style>
     <title>Document</title>
@@ -217,21 +228,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="https://dummyimage.com/1440x800/969696/fff" alt="First slide">
+                <img class="d-block w-100" src="./img/title3.png" alt="First slide">
                 <div class="carousel-caption d-md-block">
-                    <p class="display-1 mb-5">First slide label</p>
+                    <p class="display-1 mb-5 title-text">小石多肉園區</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://dummyimage.com/1440x800/ba09ba/fff" alt="Second slide">
+                <img class="d-block w-100" src="./img/title2.png" alt="Second slide">
                 <div class="carousel-caption d-md-block">
-                    <p class="display-1 mb-5">First slide label</p>
+                    <p class="display-1 mb-5">小石多肉園區</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://dummyimage.com/1440x800/fa9e00/fff" alt="Third slide">
+                <img class="d-block w-100" src="./img/title1.png" alt="Third slide">
                 <div class="carousel-caption d-md-block">
-                    <p class="display-1 mb-5">First slide label</p>
+                    <p class="display-1 mb-5">小石多肉園區</p>
                 </div>
             </div>
         </div>
@@ -271,14 +282,106 @@
 
     <!-- 關於我區 -->
 
-    <div class="container-fluid bg-warning" id="about">
+    <div class="container-fluid" id="about">
         <div class="row">
-            <div class="col-sm-6 about-img">
-                <img class="img-fluid" src="https://dummyimage.com/500x500/14deca/68c48b" alt="">
+            <div class="col-sm-4 about-img">
+                <img class="img-fluid" src="./img/about.png" alt="">
             </div>
-            <div class="col-sm-6 py-3">
-                <h2>關於我</h2>
-                <p>123456789</p>
+            <div class="col-sm-8 py-3">
+                <h2 class="text-center">關於我</h2>
+                <p class="text-center">興趣使然的中年大叔，喜愛植物，常常自己手工製作各種盆栽</p>
+                <div class="row mt-5 p-3">
+                    <div class="col-sm-4">
+                        <img class="mr-1 img-fluid" src="./img/about_1.png" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="mr-1 img-fluid" src="./img/about_2.png" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="mr-1 img-fluid" src="./img/about_3.png" alt="">
+                    </div>
+
+                    <!-- 抽獎區 -->
+                    <div class="col-sm-12 text-center mt-5">
+                        <!-- Button trigger modal -->
+                        <h3 class="text-center">今日運勢</h3>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModalCenter" onclick="start()">
+                            抽籤去
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        var rannum;
+
+        function start() {
+            // console.log("OKOK");
+            $(".miko-lod").show();
+            $(".miko-wait").show();
+            $(".miko-wait").text("等待中...請不要太緊張");
+            $(".miko-luk").hide();
+            $(".miko-unluk").hide();
+
+            rannum = getRandom(1,10);
+            // console.log(rannum);
+            $(".miko-luk").hide();
+            $(".miko-unluk").hide();
+            setTimeout(function () {
+                $(".miko-lod").hide();
+                if(rannum > 5) {
+                    $(".miko-luk").show();
+                    $(".miko-wait").hide();
+                    var luk = document.getElementById("miko-luk");
+                    luk.setAttribute("src","./img/30-Lucky.gif");
+                    setTimeout(function(){
+                        $(".miko-wait").text("大吉捏");
+                        $(".miko-wait").show();
+                    },2100);
+                    
+                } else {
+                    $(".miko-unluk").show();
+                    $(".miko-wait").hide();
+                    var luk = document.getElementById("miko-unluk");
+                    luk.setAttribute("src","./img/31-UnLucky.gif");
+                    setTimeout(function(){
+                        $(".miko-wait").text("A...");
+                        $(".miko-wait").show();
+                    },2100); 
+                }
+            }, 3000);
+        }
+    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid miko-lod" src="./img/11-Nervous.gif" alt="">
+                    <h2 class="miko-wait text-center">等待中...請不要太緊張</h2>
+                    <img class="img-fluid miko-luk" src="" alt="" id="miko-luk">
+                    <img class="img-fluid miko-unluk" src="" alt="" id="miko-unluk">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary" onclick="close()">Save changes</button> -->
+                </div>
             </div>
         </div>
     </div>
@@ -290,7 +393,7 @@
             <div class="col-md-12 text-center">
                 <h1>特色</h1>
                 <p>
-                    123456
+                    全台一家，獨一無二
                 </p>
             </div>
 
@@ -302,7 +405,7 @@
                     </div>
                     <div class="col-8 mt-5">
                         <h2>純手工製作</h2>
-                        <p>123456</p>
+                        <p>雙手製作，材料天然，保證純手工</p>
                     </div>
                 </div>
             </div>
@@ -315,7 +418,7 @@
                     </div>
                     <div class="col-8 mt-5">
                         <h2>用心栽培</h2>
-                        <p>123456</p>
+                        <p>24HR細心栽培，全心呵護</p>
                     </div>
                 </div>
 
@@ -335,32 +438,29 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_1.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_1.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <p class="bg-warning text-center"></p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_2.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_2.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <p class="bg-warning text-center"></p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_3.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_3.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <p class="bg-warning text-center"></p>
                 </div>
             </div>
         </div>
@@ -368,32 +468,29 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_4.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_4.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <p class="bg-warning text-center"></p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_5.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_5.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <!-- <p class="bg-warning text-center">姬朧月</p> -->
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_6.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_6.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <p class="bg-warning text-center"></p>
                 </div>
             </div>
         </div>
@@ -401,39 +498,36 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_7.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_7.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <p class="bg-warning text-center"></p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_8.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_8.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <!-- <p class="bg-warning text-center">十二之卷</p> -->
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="plant-img">
-                    <img src="https://dummyimage.com/300x300/000/fff" class="img-fluid" alt="..."
-                        style="position: absolute;">
-                    <img src="https://dummyimage.com/300x300/00f719/68c48b" class="img-fluid" alt="...">
+                    <img src="./img/card_9.JPG" class="img-fluid" alt="..." style="position: absolute;">
+                    <img src="./img/card_9.1.JPG" class="img-fluid" alt="...">
                 </div>
                 <div class="plant-content">
-                    <p class="bg-warning text-center">123456</p>
+                    <!-- <p class="bg-warning text-center">不夜城蘆薈</p> -->
                 </div>
             </div>
         </div>
     </div>
 
     <!-- 動態文字 -->
-    <div class="typing-txt-block bg-animation">
+    <div class="typing-txt-block bg-animation mt-5">
         <div class="container">
             <div class="row typing-txt-row">
                 <h1 data-text="Visitors are welcome ~">Visitors are welcome ~</h1>
@@ -443,12 +537,12 @@
 
 
     <!-- 聯絡我們 -->
-    <div class="jumbotron jumbotron-fluid mt-5"
-        style="height: 500px; background-image: url('https://dummyimage.com/1440x800/636363/fff'); background-size: cover;">
+    <!-- <div class="jumbotron jumbotron-fluid mt-5"
+        style="height: 500px; background-image: url('./img/cont_us.png'); background-size: ;">
         <div class="container text-center" style="margin-top: 250px;">
             <a class="btn btn-primary btn-lg" href="#" role="button" onclick="btnclick()">contant us</a>
         </div>
-    </div>
+    </div> -->
 
     <!-- footer -->
     <footer class="mt-5">
